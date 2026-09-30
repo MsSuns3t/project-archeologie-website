@@ -182,3 +182,33 @@
     border-right-color: var(--border);
   }
 }
+
+.route-message {
+  display: grid;
+  align-content: center;
+  justify-items: start;
+  gap: 12px;
+  min-height: 100svh;
+  padding: 32px;
+  color: #f6f2e9;
+}
+
+.route-message h1 {
+  max-width: 18ch;
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: 36px;
+  font-weight: 500;
+}
+
+.route-message a {
+  color: #f1a08e;
+  text-underline-offset: 4px;
+}
+
+.route-eyebrow {
+  color: #a9bcb4;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
