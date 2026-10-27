@@ -1,0 +1,277 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@600;800&family=Source+Serif+4:wght@400;600&display=swap');
+
+:root {
+    --bg: #E6E8E3;
+    --paper: #F4F5F1;
+    --ink: #24212B;
+    --muted: #5E5B66;
+    --purper: #5A2A62;
+    --brons: #9C6B2E;
+    --goed: #2F6B4A;
+    --fout: #A03030;
+    --rand: #B9B5A8;
+    box-sizing: border-box;
+    padding-top: env(safe-area-inset-top, 0px);
+    padding-bottom: env(safe-area-inset-bottom, 0px)
+}
+
+@media (prefers-color-scheme:dark) {
+    :root:not([data-theme="light"]) {
+        --bg: #1D1B22;
+        --paper: #2A2731;
+        --ink: #ECE8F0;
+        --muted: #A9A3B3;
+        --purper: #C79BD0;
+        --brons: #D2A261;
+        --goed: #6FC095;
+        --fout: #E58A8A;
+        --rand: #4A4654
+    }
+}
+
+:root[data-theme="dark"] {
+    --bg: #1D1B22;
+    --paper: #2A2731;
+    --ink: #ECE8F0;
+    --muted: #A9A3B3;
+    --purper: #C79BD0;
+    --brons: #D2A261;
+    --goed: #6FC095;
+    --fout: #E58A8A;
+    --rand: #4A4654
+}
+
+html {
+    scroll-padding-top: env(safe-area-inset-top, 0px)
+}
+
+* {
+    box-sizing: border-box
+}
+
+body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: "Source Serif 4", Georgia, serif;
+    line-height: 1.55
+}
+
+header {
+    background: var(--purper);
+    color: var(--paper);
+    border-bottom: 6px double var(--brons);
+    padding: 28px 20px;
+    text-align: center
+}
+
+@media (prefers-color-scheme:dark) {
+    :root:not([data-theme="light"]) header {
+        color: #1D1B22
+    }
+}
+
+:root[data-theme="dark"] header {
+    color: #1D1B22
+}
+
+h1 {
+    font-family: Cinzel, "Trajan Pro", Georgia, serif;
+    font-weight: 800;
+    font-size: clamp(1.6rem, 6vw, 2.6rem);
+    letter-spacing: .06em;
+    margin: 0
+}
+
+header p {
+    margin: 6px 0 0;
+    opacity: .9
+}
+
+main {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 24px 16px 48px
+}
+
+#spel {
+    background: var(--paper);
+    border: 1px solid var(--rand);
+    border-radius: 6px;
+    padding: 20px
+}
+
+h2 {
+    font-family: Cinzel, Georgia, serif;
+    font-weight: 600;
+    font-size: 1.6rem;
+    margin: 4px 0;
+    color: var(--purper)
+}
+
+.teller {
+    color: var(--muted);
+    margin: 0;
+    font-size: .95rem
+}
+
+.opdracht {
+    max-width: 62ch;
+    margin: 4px 0 16px
+}
+
+.groot {
+    font-family: Cinzel, Georgia, serif;
+    font-size: 2.2rem;
+    margin: 8px 0;
+    color: var(--brons)
+}
+
+.raster {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 10px
+}
+
+.kaart {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    text-align: center;
+    padding: 12px 8px;
+    background: var(--bg);
+    color: var(--ink);
+    border: 2px solid var(--rand);
+    border-radius: 4px;
+    font: inherit;
+    cursor: pointer
+}
+
+.kaart:hover:not(:disabled) {
+    border-color: var(--brons)
+}
+
+.kaart.gekozen {
+    border-color: var(--purper);
+    outline: 2px solid var(--purper)
+}
+
+.kaart:disabled {
+    cursor: default;
+    opacity: 1;
+    color: var(--ink)
+}
+
+.kaart {
+    position: relative
+}
+
+.kaart.goed {
+    border-color: var(--goed);
+    border-width: 3px;
+    background: color-mix(in srgb, var(--goed) 18%, var(--bg))
+}
+
+.kaart.fout {
+    border-color: var(--fout);
+    border-width: 3px;
+    background: color-mix(in srgb, var(--fout) 18%, var(--bg))
+}
+
+.kaart.gemist {
+    border-color: var(--brons);
+    border-width: 3px;
+    border-style: dashed;
+    background: color-mix(in srgb, var(--brons) 14%, var(--bg))
+}
+
+.kaart.neutraal {
+    opacity: .55
+}
+
+.label {
+    width: 100%;
+    padding: 3px 6px;
+    border-radius: 3px;
+    font-size: .8rem;
+    font-weight: 600;
+    color: #fff
+}
+
+.goed .label {
+    background: #2F6B4A
+}
+
+.fout .label {
+    background: #A03030
+}
+
+.gemist .label {
+    background: #8A5A1E
+}
+
+.neutraal .label {
+    background: var(--muted)
+}
+
+h3 {
+    font-family: Cinzel, Georgia, serif;
+    font-weight: 600;
+    font-size: 1.1rem;
+    margin: 20px 0 6px
+}
+
+.stappen {
+    margin: 0;
+    padding-left: 1.3em;
+    max-width: 62ch
+}
+
+.stappen li {
+    margin-bottom: 6px
+}
+
+.samenvatting {
+    font-weight: 600;
+    margin: 0 0 12px
+}
+
+.icoon {
+    font-size: 2rem
+}
+
+.naam {
+    font-weight: 600
+}
+
+.uitleg {
+    font-size: .85rem;
+    color: var(--muted)
+}
+
+.actie {
+    margin-top: 18px;
+    padding: 12px 24px;
+    background: var(--purper);
+    color: var(--paper);
+    border: 0;
+    border-radius: 4px;
+    font: 600 1rem "Source Serif 4", Georgia, serif;
+    cursor: pointer
+}
+
+@media (prefers-color-scheme:dark) {
+    :root:not([data-theme="light"]) .actie {
+        color: #1D1B22
+    }
+}
+
+:root[data-theme="dark"] .actie {
+    color: #1D1B22
+}
+
+button:focus-visible {
+    outline: 3px solid var(--brons);
+    outline-offset: 2px
+}
