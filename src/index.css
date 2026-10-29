@@ -9,3 +9,54 @@ body {
 #root {
   min-height: 100vh;
 }
+
+:root {
+  --font-ui: 'Aptos', 'Trebuchet MS', sans-serif;
+  --font-display: Georgia, 'Times New Roman', serif;
+
+  color: #f6f2e9;
+  background: #171d1b;
+  color-scheme: dark;
+  font-family: var(--font-ui);
+  letter-spacing: 0;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  width: 100%;
+  min-width: 320px;
+  min-height: 100%;
+  margin: 0;
+}
+
+body {
+  min-height: 100svh;
+}
+
+#root {
+  display: block;
+  max-width: none;
+  border: 0;
+  text-align: left;
+}
+
+button,
+a {
+  font: inherit;
+}
+
+button:focus-visible,
+a:focus-visible {
+  outline: 3px solid #f1a08e;
+  outline-offset: 3px;
+}
+
+::selection {
+  color: #171d1b;
+  background: #dce7d8;
+}
