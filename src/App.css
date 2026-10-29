@@ -102,6 +102,22 @@
   transform: rotate(-12deg);
 }
 
+.card-art-scene {
+  background: #d8c6a3;
+}
+
+.card-art-scene::before,
+.card-art-scene::after {
+  content: none;
+}
+
+.card-art-scene img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
 .card-art:hover {
   transform: translateY(-3px);
   box-shadow: 0 9px 18px rgba(58, 43, 33, 0.26), 0 0 0 1px rgba(81, 71, 68, 0.22);
@@ -123,11 +139,20 @@
 }
 
 .plate-placeholder {
+  display: grid;
+  place-items: center;
   min-height: calc(100vh - 116px);
   margin: 0 8px;
   background:
     linear-gradient(rgba(81, 71, 68, 0.74), rgba(81, 71, 68, 0.74)),
     repeating-linear-gradient(0deg, #d9c9a9 0 5px, #cbb893 5px 6px);
+}
+
+.plate-unavailable {
+  margin: 24px;
+  color: #f3e8d2;
+  font-size: clamp(1.1rem, 3vw, 1.6rem);
+  text-align: center;
 }
 
 .plate-card h2 {
@@ -158,4 +183,34 @@
   .card-art {
     transition: none;
   }
+}
+
+.route-message {
+  display: grid;
+  align-content: center;
+  justify-items: start;
+  gap: 12px;
+  min-height: 100svh;
+  padding: 32px;
+  color: #f6f2e9;
+}
+
+.route-message h1 {
+  max-width: 18ch;
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: 36px;
+  font-weight: 500;
+}
+
+.route-message a {
+  color: #f1a08e;
+  text-underline-offset: 4px;
+}
+
+.route-eyebrow {
+  color: #a9bcb4;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
 }

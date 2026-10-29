@@ -1,0 +1,267 @@
+.scene-viewer {
+  position: relative;
+  width: 100%;
+  height: 100svh;
+  min-height: 360px;
+  overflow: hidden;
+  color: #f6f2e9;
+  background-color: #171d1b;
+  background-image: radial-gradient(#ffffff12 0.7px, transparent 0.7px);
+  background-size: 22px 22px;
+}
+
+.scene-header {
+  position: absolute;
+  z-index: 2;
+  inset: 0 0 auto;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 24px 28px;
+  pointer-events: none;
+}
+
+.scene-heading,
+.preview-status {
+  padding: 10px 13px;
+  background: #171d1be8;
+  border: 1px solid #ffffff24;
+}
+
+.scene-heading {
+  max-width: min(70vw, 520px);
+}
+
+.scene-eyebrow {
+  margin: 0 0 4px;
+  color: #a9bcb4;
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 1.3;
+  text-transform: uppercase;
+}
+
+.scene-heading h1 {
+  margin: 0;
+  color: #f6f2e9;
+  font-family: var(--font-display);
+  font-size: 22px;
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0;
+}
+
+.scene-back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 10px;
+  color: #f1a08e;
+  font-size: 12px;
+  font-weight: 700;
+  pointer-events: auto;
+  text-decoration: none;
+}
+
+.scene-back-link:hover {
+  color: #ffd0a8;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.scene-back-link:focus-visible {
+  outline: 2px solid #f6f2e9;
+  outline-offset: 4px;
+}
+
+.scene-back-link svg {
+  width: 15px;
+  height: 15px;
+}
+
+.preview-status {
+  color: #f1a08e;
+  font-size: 12px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.scene-canvas {
+  position: absolute;
+  inset: 82px 0 54px;
+}
+
+.scene-transform-viewport {
+  touch-action: none;
+}
+
+.scene-artwork {
+  position: relative;
+  width: max-content;
+  height: max-content;
+  margin: auto;
+  user-select: none;
+}
+
+.scene-artwork img {
+  display: block;
+  width: auto;
+  height: auto;
+  max-width: calc(100vw - 32px);
+  max-height: calc(100svh - 150px);
+  object-fit: contain;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+.poi-layer {
+  position: absolute;
+  inset: 0;
+}
+
+.poi-marker {
+  position: absolute;
+  display: grid;
+  width: 38px;
+  height: 38px;
+  padding: 0;
+  place-items: center;
+  color: #171d1b;
+  background: #f1a08e;
+  border: 2px solid #fff8e9;
+  border-radius: 50%;
+  box-shadow: 0 2px 12px #0009;
+  cursor: pointer;
+  transform: translate(-50%, -50%);
+  transition: background-color 140ms ease, scale 140ms ease;
+}
+
+.poi-marker:hover {
+  background: #ffd0a8;
+  scale: 1.1;
+}
+
+.poi-marker span {
+  font-size: 13px;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.viewer-controls {
+  position: absolute;
+  z-index: 3;
+  right: 24px;
+  bottom: 24px;
+  display: flex;
+  min-height: 48px;
+  align-items: center;
+  gap: 4px;
+  padding: 4px;
+  color: #202723;
+  background: #f6f2e9;
+  border: 1px solid #ffffff80;
+  box-shadow: 0 5px 24px #0005;
+}
+
+.viewer-controls button {
+  display: grid;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  place-items: center;
+  color: inherit;
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+}
+
+.viewer-controls button:hover {
+  background: #dce7d8;
+}
+
+.viewer-controls svg {
+  width: 18px;
+  height: 18px;
+  stroke-width: 2;
+}
+
+.zoom-level {
+  min-width: 48px;
+  color: #44514b;
+  font-size: 12px;
+  font-variant-numeric: tabular-nums;
+  text-align: center;
+}
+
+.control-divider {
+  width: 1px;
+  height: 24px;
+  margin: 0 3px;
+  background: #cbd2ca;
+}
+
+.viewer-hint {
+  position: absolute;
+  z-index: 2;
+  bottom: 34px;
+  left: 28px;
+  margin: 0;
+  color: #c3c9c3;
+  font-size: 12px;
+  pointer-events: none;
+}
+
+.viewer-hint span {
+  padding: 0 5px;
+  color: #f1a08e;
+}
+
+@media (max-width: 600px) {
+  .scene-header {
+    gap: 8px;
+    padding: 14px;
+  }
+
+  .scene-heading {
+    max-width: 68vw;
+    padding: 8px 10px;
+  }
+
+  .scene-heading h1 {
+    font-size: 18px;
+  }
+
+  .preview-status {
+    padding: 8px;
+    font-size: 10px;
+  }
+
+  .scene-canvas {
+    inset: 70px 0 60px;
+  }
+
+  .scene-artwork img {
+    max-width: calc(100vw - 20px);
+    max-height: calc(100svh - 140px);
+  }
+
+  .viewer-controls {
+    right: 14px;
+    bottom: 14px;
+  }
+
+  .viewer-hint {
+    right: 170px;
+    bottom: 27px;
+    left: 14px;
+    max-width: 30ch;
+    font-size: 10px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .poi-marker {
+    transition: none;
+  }
+}
