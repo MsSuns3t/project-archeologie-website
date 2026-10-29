@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { Minus, Plus, RotateCcw } from 'lucide-react'
+import { ArrowLeft, Minus, Plus, RotateCcw } from 'lucide-react'
 import {
   TransformComponent,
   TransformWrapper,

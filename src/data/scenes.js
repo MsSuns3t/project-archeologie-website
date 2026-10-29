@@ -16,7 +16,12 @@ export const scenes = [
         x: 28,
         y: 34,
       },
-      { id: 'example-2', label: 'Example point of interest 2', x: 68, y: 48 },
+      {
+        id: 'camp-defense',
+        label: 'Verhaallijn 2: Verdediging van het legerkamp',
+        x: 68,
+        y: 48,
+      },
       { id: 'example-3', label: 'Example point of interest 3', x: 47, y: 72 },
     ],
   },

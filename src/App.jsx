@@ -1,7 +1,8 @@
 import { useState } from 'react'
-import { Link, Navigate, Route, Routes, useNavigate, useParams } from 'react-router-dom'
+import { Link, Navigate, Route, Routes, useParams } from 'react-router-dom'
 import { SceneViewer } from './components/SceneViewer.jsx'
 import { scenes } from './data/scenes.js'
+import VerdedigingsQuiz from './games/verhaallijn-2/VerdedigingsQuiz.jsx'
 import VestisRomana from './games/verhaallijn-4/RomeinseUitrusting.jsx'
 import './App.css'
 
@@ -44,7 +45,6 @@ function SceneRoute() {
 
 function HomePage() {
   const [selectedPlate, setSelectedPlate] = useState(null)
-  const navigate = useNavigate()
 
   if (selectedPlate !== null) {
     return (
@@ -68,11 +68,17 @@ function HomePage() {
       <div className="page-bar">Startpagina</div>
       <header className="site-header">Archeologie-Website Veluws Verleden</header>
       <section className="plate-catalog" aria-label="Alle schoolplaten">
-        <p><Link to={`/scenes/${scenes[0].id}`}>Bekijk de scènepreview</Link></p>
         <div className="plate-grid-home">
           {schoolPlates.map((plate) => (
             <article className="plate-card" key={plate}>
-              {plate === 1 ? (
+              {plate === 3 ? (
+                <Link className="plate-card-link" to={`/scenes/${scenes[0].id}`}>
+                  <span className="card-art card-art-scene">
+                    <img src={scenes[0].image} alt="Schoolplaat met Romeins legerkamp" />
+                  </span>
+                  <h2>Plaat {plate}</h2>
+                </Link>
+              ) : plate === 1 ? (
                 <Link className="plate-card-link" to={`/scenes/${scenes[0].id}`}>
                   <span className="card-art" aria-hidden="true" />
                   <h2>Plaat {plate}</h2>
@@ -93,28 +99,6 @@ function HomePage() {
         </div>
       </section>
     </main>
-  )
-}
-
-function SceneRoute() {
-  const { sceneId } = useParams()
-  const scene = scenes.find((item) => item.id === sceneId)
-
-  if (!scene) {
-    return (
-      <main className="route-message">
-        <p className="route-eyebrow">Scene unavailable</p>
-        <h1>This scene could not be found.</h1>
-        <Link to={`/scenes/${scenes[0].id}`}>Open the viewer preview</Link>
-      </main>
-    )
-  }
-
-  return (
-    <SceneViewer
-      scene={scene}
-      onPoiSelect={(poi) => console.info('Selected point of interest:', poi)}
-    />
   )
 }
 
