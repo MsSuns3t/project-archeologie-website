@@ -45,7 +45,7 @@ export default function VestisRomana() {
   };
 
   return (
-    <>
+    <div className="vestis-game">
       <header>
         <h1>Vestis Romana</h1>
         <p>Kleed de Romein: kies de juiste kleding en uitrusting.</p>
@@ -69,6 +69,6 @@ export default function VestisRomana() {
           )}
         </div>
       </main>
-    </>
+    </div>
   );
 }

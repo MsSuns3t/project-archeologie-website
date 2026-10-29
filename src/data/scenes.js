@@ -9,8 +9,14 @@ export const scenes = [
     imageAlt: 'Aerial view of Rome, showing rooftops, streets, and a domed building',
     imageStatus: 'Scene preview',
     pois: [
-      { id: 'example-1', label: 'Example point of interest 1', x: 28, y: 34 },
-      { id: 'camp-defense', label: 'Verdediging van het legerkamp', x: 68, y: 48 },
+      {
+        id: 'example-1',
+        label: 'Vestis Romana: Roman clothing game',
+        gameId: 'vestis-romana',
+        x: 28,
+        y: 34,
+      },
+      { id: 'example-2', label: 'Example point of interest 2', x: 68, y: 48 },
       { id: 'example-3', label: 'Example point of interest 3', x: 47, y: 72 },
     ],
   },
