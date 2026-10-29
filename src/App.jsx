@@ -36,13 +36,22 @@ function HomePage() {
         <div className="plate-grid-home">
           {schoolPlates.map((plate) => (
             <article className="plate-card" key={plate}>
-              <button
-                className="card-art"
-                type="button"
-                aria-label={`Open plaat ${plate}`}
-                onClick={() => setSelectedPlate(plate)}
-              />
-              <h2>Plaat {plate}</h2>
+              {plate === 1 ? (
+                <Link className="plate-card-link" to={`/scenes/${scenes[0].id}`}>
+                  <span className="card-art" aria-hidden="true" />
+                  <h2>Plaat {plate}</h2>
+                </Link>
+              ) : (
+                <>
+                  <button
+                    className="card-art"
+                    type="button"
+                    aria-label={`Open plaat ${plate}`}
+                    onClick={() => setSelectedPlate(plate)}
+                  />
+                  <h2>Plaat {plate}</h2>
+                </>
+              )}
             </article>
           ))}
         </div>
