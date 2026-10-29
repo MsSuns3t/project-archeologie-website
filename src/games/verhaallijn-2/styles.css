@@ -1,0 +1,297 @@
+.defense-quiz-backdrop {
+  position: fixed;
+  z-index: 10;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  padding: 16px;
+  overflow-y: auto;
+  background: #101614c9;
+  backdrop-filter: blur(3px);
+}
+
+.defense-quiz {
+  --quiz-ink: #202723;
+  --quiz-muted: #58625b;
+  --quiz-paper: #f6f2e9;
+  --quiz-line: #c9c8b9;
+  --quiz-accent: #bb6653;
+  --quiz-correct: #386e51;
+  --quiz-incorrect: #a4473d;
+
+  width: min(100%, 560px);
+  max-height: min(90svh, 760px);
+  overflow-y: auto;
+  color: var(--quiz-ink);
+  background: var(--quiz-paper);
+  border: 1px solid #fff9;
+  box-shadow: 0 18px 60px #0008;
+}
+
+.defense-quiz-header {
+  position: relative;
+  padding: 22px 24px 18px;
+  color: var(--quiz-paper);
+  background: #25342e;
+  border-bottom: 4px solid var(--quiz-accent);
+}
+
+.defense-quiz-heading {
+  max-width: calc(100% - 46px);
+}
+
+.defense-quiz-eyebrow {
+  margin: 0 0 5px;
+  color: #e6ad8e;
+  font-size: 11px;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.defense-quiz-heading h2 {
+  margin: 0;
+  color: inherit;
+  font-family: var(--font-display, Georgia, serif);
+  font-size: 22px;
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+.defense-quiz-close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  display: grid;
+  width: 36px;
+  height: 36px;
+  padding: 0;
+  place-items: center;
+  color: var(--quiz-paper);
+  background: transparent;
+  border: 1px solid #ffffff50;
+  cursor: pointer;
+}
+
+.defense-quiz-close:hover {
+  background: #ffffff1a;
+}
+
+.defense-quiz-close:focus-visible,
+.defense-answer:focus-visible,
+.defense-quiz-primary:focus-visible,
+.defense-quiz-secondary:focus-visible {
+  outline: 3px solid #e6ad8e;
+  outline-offset: 3px;
+}
+
+.defense-quiz-close svg {
+  width: 18px;
+  height: 18px;
+}
+
+.defense-quiz-intro {
+  max-width: 62ch;
+  margin: 12px 0 0;
+  color: #e2e4dc;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.defense-quiz-content {
+  padding: 20px 24px 24px;
+}
+
+.defense-quiz-progress-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  color: var(--quiz-muted);
+  font-size: 13px;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+.defense-quiz-progress {
+  height: 5px;
+  margin: 8px 0 20px;
+  overflow: hidden;
+  background: #deddd1;
+}
+
+.defense-quiz-progress span {
+  display: block;
+  height: 100%;
+  background: var(--quiz-accent);
+  transition: width 180ms ease;
+}
+
+.defense-quiz-question {
+  margin: 0 0 14px;
+  color: var(--quiz-ink);
+  font-size: 19px;
+  font-weight: 700;
+  line-height: 1.35;
+}
+
+.defense-quiz-answers {
+  display: grid;
+  gap: 8px;
+}
+
+.defense-answer {
+  display: grid;
+  grid-template-columns: 30px 1fr;
+  min-height: 54px;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  color: var(--quiz-ink);
+  background: #fffdf8;
+  border: 1px solid var(--quiz-line);
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.defense-answer:hover:not(:disabled) {
+  border-color: var(--quiz-accent);
+  background: #fff8f1;
+}
+
+.defense-answer:disabled {
+  color: var(--quiz-ink);
+  cursor: default;
+}
+
+.defense-answer-letter {
+  display: grid;
+  width: 28px;
+  height: 28px;
+  place-items: center;
+  color: var(--quiz-muted);
+  background: #ece9df;
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.defense-answer-correct {
+  border-color: var(--quiz-correct);
+  background: #e8f0e7;
+}
+
+.defense-answer-correct .defense-answer-letter {
+  color: #fff;
+  background: var(--quiz-correct);
+}
+
+.defense-answer-incorrect {
+  border-color: var(--quiz-incorrect);
+  background: #f6e8e4;
+}
+
+.defense-answer-incorrect .defense-answer-letter {
+  color: #fff;
+  background: var(--quiz-incorrect);
+}
+
+.defense-quiz-feedback {
+  margin: 14px 0 0;
+  color: var(--quiz-muted);
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.defense-quiz-feedback strong {
+  color: var(--quiz-ink);
+}
+
+.defense-quiz-primary,
+.defense-quiz-secondary {
+  min-height: 44px;
+  padding: 10px 16px;
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.defense-quiz-primary {
+  margin-top: 18px;
+  color: #fff;
+  background: #315744;
+  border: 1px solid #315744;
+}
+
+.defense-quiz-primary:hover:not(:disabled) {
+  background: #244333;
+}
+
+.defense-quiz-primary:disabled {
+  background: #78877c;
+  border-color: #78877c;
+  cursor: not-allowed;
+}
+
+.defense-quiz-secondary {
+  color: var(--quiz-ink);
+  background: transparent;
+  border: 1px solid var(--quiz-line);
+}
+
+.defense-quiz-secondary:hover {
+  background: #ece9df;
+}
+
+.defense-quiz-result > p:not(.defense-quiz-eyebrow) {
+  margin: 8px 0;
+  color: var(--quiz-muted);
+}
+
+.defense-quiz-score {
+  color: var(--quiz-ink) !important;
+  font-size: 28px;
+  font-weight: 800;
+  font-variant-numeric: tabular-nums;
+}
+
+.defense-quiz-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 18px;
+}
+
+.defense-quiz-actions .defense-quiz-primary {
+  margin-top: 0;
+}
+
+@media (max-width: 520px) {
+  .defense-quiz-backdrop {
+    padding: 10px;
+  }
+
+  .defense-quiz {
+    max-height: 94svh;
+  }
+
+  .defense-quiz-header {
+    padding: 18px 18px 15px;
+  }
+
+  .defense-quiz-heading h2 {
+    font-size: 19px;
+  }
+
+  .defense-quiz-content {
+    padding: 16px 18px 20px;
+  }
+
+  .defense-quiz-question {
+    font-size: 17px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .defense-quiz-progress span {
+    transition: none;
+  }
+}

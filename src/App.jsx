@@ -2,12 +2,14 @@ import { useState } from 'react'
 import { Link, Navigate, Route, Routes, useNavigate, useParams } from 'react-router-dom'
 import { SceneViewer } from './components/SceneViewer.jsx'
 import { scenes } from './data/scenes.js'
+import VerdedigingsQuiz from './games/verhaallijn-2/VerdedigingsQuiz.jsx'
 import './App.css'
 
 const schoolPlates = Array.from({ length: 8 }, (_, index) => index + 1)
 
 function SceneRoute() {
   const { sceneId } = useParams()
+  const [verdedigingsQuizOpen, setVerdedigingsQuizOpen] = useState(false)
   const scene = scenes.find((item) => item.id === sceneId)
 
   if (!scene) {
@@ -21,10 +23,22 @@ function SceneRoute() {
   }
 
   return (
-    <SceneViewer
-      scene={scene}
-      onPoiSelect={(poi) => console.info('Selected point of interest:', poi)}
-    />
+    <>
+      <SceneViewer
+        scene={scene}
+        onPoiSelect={(poi) => {
+          if (poi.id === 'camp-defense') {
+            setVerdedigingsQuizOpen(true)
+            return
+          }
+
+          console.info('Selected point of interest:', poi)
+        }}
+      />
+      {verdedigingsQuizOpen && (
+        <VerdedigingsQuiz onClose={() => setVerdedigingsQuizOpen(false)} />
+      )}
+    </>
   )
 }
 
