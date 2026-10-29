@@ -54,6 +54,7 @@ function HomePage() {
       <div className="page-bar">Startpagina</div>
       <header className="site-header">Archeologie-Website Veluws Verleden</header>
       <section className="plate-catalog" aria-label="Alle schoolplaten">
+        <p><Link to={`/scenes/${scenes[0].id}`}>Bekijk de scènepreview</Link></p>
         <div className="plate-grid-home">
           {schoolPlates.map((plate) => (
             <article className="plate-card" key={plate}>
