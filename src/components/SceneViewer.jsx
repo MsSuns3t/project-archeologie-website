@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import { Minus, Plus, RotateCcw } from 'lucide-react'
 import {
   TransformComponent,
@@ -66,20 +67,34 @@ export function SceneViewer({ scene, onPoiSelect }) {
                   <img src={scene.image} alt={scene.imageAlt} draggable="false" />
                   <div className="poi-layer" role="group" aria-label="Points of interest">
                     {scene.pois.map((poi, index) => (
-                      <button
-                        key={poi.id}
-                        type="button"
-                        className="poi-marker"
-                        style={{ left: `${poi.x}%`, top: `${poi.y}%` }}
-                        aria-label={poi.label}
-                        title={poi.label}
-                        onClick={(event) => {
-                          event.stopPropagation()
-                          onPoiSelect?.(poi)
-                        }}
-                      >
-                        <span aria-hidden="true">{index + 1}</span>
-                      </button>
+                      poi.gameId ? (
+                        <Link
+                          key={poi.id}
+                          to={`/games/${poi.gameId}`}
+                          className="poi-marker poi-marker-game"
+                          style={{ left: `${poi.x}%`, top: `${poi.y}%` }}
+                          aria-label={`Open ${poi.label}`}
+                          title={poi.label}
+                          onClick={(event) => event.stopPropagation()}
+                        >
+                          <span aria-hidden="true">{index + 1}</span>
+                        </Link>
+                      ) : (
+                        <button
+                          key={poi.id}
+                          type="button"
+                          className="poi-marker"
+                          style={{ left: `${poi.x}%`, top: `${poi.y}%` }}
+                          aria-label={poi.label}
+                          title={poi.label}
+                          onClick={(event) => {
+                            event.stopPropagation()
+                            onPoiSelect?.(poi)
+                          }}
+                        >
+                          <span aria-hidden="true">{index + 1}</span>
+                        </button>
+                      )
                     ))}
                   </div>
                 </div>

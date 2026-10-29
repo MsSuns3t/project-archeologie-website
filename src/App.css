@@ -212,3 +212,14 @@
   font-weight: 700;
   text-transform: uppercase;
 }
+
+.game-page {
+  min-height: 100svh;
+}
+
+.game-back-link {
+  display: inline-block;
+  margin: 16px 20px 0;
+  color: #f6f2e9;
+  text-underline-offset: 4px;
+}

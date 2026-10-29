@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@600;800&family=Source+Serif+4:wght@400;600&display=swap');
 
-:root {
+.vestis-game {
     --bg: #E6E8E3;
     --paper: #F4F5F1;
     --ink: #24212B;
@@ -11,129 +11,92 @@
     --fout: #A03030;
     --rand: #B9B5A8;
     box-sizing: border-box;
-    padding-top: env(safe-area-inset-top, 0px);
-    padding-bottom: env(safe-area-inset-bottom, 0px)
-}
-
-@media (prefers-color-scheme:dark) {
-    :root:not([data-theme="light"]) {
-        --bg: #1D1B22;
-        --paper: #2A2731;
-        --ink: #ECE8F0;
-        --muted: #A9A3B3;
-        --purper: #C79BD0;
-        --brons: #D2A261;
-        --goed: #6FC095;
-        --fout: #E58A8A;
-        --rand: #4A4654
-    }
-}
-
-:root[data-theme="dark"] {
-    --bg: #1D1B22;
-    --paper: #2A2731;
-    --ink: #ECE8F0;
-    --muted: #A9A3B3;
-    --purper: #C79BD0;
-    --brons: #D2A261;
-    --goed: #6FC095;
-    --fout: #E58A8A;
-    --rand: #4A4654
-}
-
-html {
-    scroll-padding-top: env(safe-area-inset-top, 0px)
-}
-
-* {
-    box-sizing: border-box
-}
-
-body {
-    margin: 0;
+    min-height: calc(100svh - 50px);
     background: var(--bg);
     color: var(--ink);
     font-family: "Source Serif 4", Georgia, serif;
-    line-height: 1.55
+    line-height: 1.55;
 }
 
-header {
+.vestis-game *,
+.vestis-game *::before,
+.vestis-game *::after {
+    box-sizing: inherit;
+}
+
+.vestis-game header {
     background: var(--purper);
     color: var(--paper);
     border-bottom: 6px double var(--brons);
     padding: 28px 20px;
-    text-align: center
+    text-align: center;
 }
 
-@media (prefers-color-scheme:dark) {
-    :root:not([data-theme="light"]) header {
-        color: #1D1B22
+@media (prefers-color-scheme: dark) {
+    .vestis-game header {
+        color: #1D1B22;
     }
 }
 
-:root[data-theme="dark"] header {
-    color: #1D1B22
-}
-
-h1 {
+.vestis-game h1 {
     font-family: Cinzel, "Trajan Pro", Georgia, serif;
     font-weight: 800;
     font-size: clamp(1.6rem, 6vw, 2.6rem);
     letter-spacing: .06em;
-    margin: 0
+    margin: 0;
 }
 
-header p {
+.vestis-game header p {
     margin: 6px 0 0;
-    opacity: .9
+    opacity: .9;
 }
 
-main {
+.vestis-game main {
     max-width: 760px;
     margin: 0 auto;
-    padding: 24px 16px 48px
+    padding: 24px 16px 48px;
 }
 
-#spel {
+.vestis-game #spel {
     background: var(--paper);
     border: 1px solid var(--rand);
     border-radius: 6px;
-    padding: 20px
+    padding: 20px;
 }
 
-h2 {
+.vestis-game h2 {
     font-family: Cinzel, Georgia, serif;
     font-weight: 600;
     font-size: 1.6rem;
     margin: 4px 0;
-    color: var(--purper)
+    color: var(--purper);
 }
 
-.teller {
+.vestis-game .teller {
     color: var(--muted);
     margin: 0;
-    font-size: .95rem
+    font-size: .95rem;
 }
 
-.opdracht {
+.vestis-game .opdracht {
     max-width: 62ch;
-    margin: 4px 0 16px
+    margin: 4px 0 16px;
 }
 
-.groot {
+.vestis-game .groot {
     font-family: Cinzel, Georgia, serif;
     font-size: 2.2rem;
     margin: 8px 0;
-    color: var(--brons)
+    color: var(--brons);
 }
 
-.raster {
+.vestis-game .raster {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-    gap: 10px
+    gap: 10px;
 }
 
-.kaart {
+.vestis-game .kaart {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -145,112 +108,109 @@ h2 {
     border: 2px solid var(--rand);
     border-radius: 4px;
     font: inherit;
-    cursor: pointer
+    cursor: pointer;
+    position: relative;
 }
 
-.kaart:hover:not(:disabled) {
-    border-color: var(--brons)
+.vestis-game .kaart:hover:not(:disabled) {
+    border-color: var(--brons);
 }
 
-.kaart.gekozen {
+.vestis-game .kaart.gekozen {
     border-color: var(--purper);
-    outline: 2px solid var(--purper)
+    outline: 2px solid var(--purper);
 }
 
-.kaart:disabled {
+.vestis-game .kaart:disabled {
     cursor: default;
     opacity: 1;
-    color: var(--ink)
+    color: var(--ink);
 }
 
-.kaart {
-    position: relative
-}
-
-.kaart.goed {
+.vestis-game .kaart.goed {
     border-color: var(--goed);
     border-width: 3px;
-    background: color-mix(in srgb, var(--goed) 18%, var(--bg))
+    background: color-mix(in srgb, var(--goed) 18%, var(--bg));
 }
 
-.kaart.fout {
+.vestis-game .kaart.fout {
     border-color: var(--fout);
     border-width: 3px;
-    background: color-mix(in srgb, var(--fout) 18%, var(--bg))
+    background: color-mix(in srgb, var(--fout) 18%, var(--bg));
 }
 
-.kaart.gemist {
+.vestis-game .kaart.gemist {
     border-color: var(--brons);
     border-width: 3px;
     border-style: dashed;
-    background: color-mix(in srgb, var(--brons) 14%, var(--bg))
+    background: color-mix(in srgb, var(--brons) 14%, var(--bg));
 }
 
-.kaart.neutraal {
-    opacity: .55
+.vestis-game .kaart.neutraal {
+    opacity: .55;
 }
 
-.label {
+.vestis-game .label {
     width: 100%;
     padding: 3px 6px;
     border-radius: 3px;
     font-size: .8rem;
     font-weight: 600;
-    color: #fff
+    color: #fff;
 }
 
-.goed .label {
-    background: #2F6B4A
+.vestis-game .goed .label {
+    background: #2F6B4A;
 }
 
-.fout .label {
-    background: #A03030
+.vestis-game .fout .label {
+    background: #A03030;
 }
 
-.gemist .label {
-    background: #8A5A1E
+.vestis-game .gemist .label {
+    background: #8A5A1E;
 }
 
-.neutraal .label {
-    background: var(--muted)
+.vestis-game .neutraal .label {
+    background: var(--muted);
 }
 
-h3 {
+.vestis-game h3 {
     font-family: Cinzel, Georgia, serif;
     font-weight: 600;
     font-size: 1.1rem;
-    margin: 20px 0 6px
+    margin: 20px 0 6px;
 }
 
-.stappen {
+.vestis-game .stappen {
     margin: 0;
     padding-left: 1.3em;
-    max-width: 62ch
+    max-width: 62ch;
 }
 
-.stappen li {
-    margin-bottom: 6px
+.vestis-game .stappen li {
+    margin-bottom: 6px;
 }
 
-.samenvatting {
+.vestis-game .samenvatting {
     font-weight: 600;
-    margin: 0 0 12px
+    margin: 0 0 12px;
 }
 
-.icoon {
-    font-size: 2rem
+.vestis-game .icoon {
+    font-size: 2rem;
 }
 
-.naam {
-    font-weight: 600
+.vestis-game .naam {
+    font-weight: 600;
 }
 
-.uitleg {
+.vestis-game .uitleg {
     font-size: .85rem;
-    color: var(--muted)
+    color: var(--muted);
 }
 
-.actie {
+.vestis-game .actie {
     margin-top: 18px;
     padding: 12px 24px;
     background: var(--purper);
@@ -258,20 +218,20 @@ h3 {
     border: 0;
     border-radius: 4px;
     font: 600 1rem "Source Serif 4", Georgia, serif;
-    cursor: pointer
+    cursor: pointer;
 }
 
-@media (prefers-color-scheme:dark) {
-    :root:not([data-theme="light"]) .actie {
-        color: #1D1B22
+@media (prefers-color-scheme: dark) {
+    .vestis-game .actie {
+        color: #1D1B22;
     }
 }
 
-:root[data-theme="dark"] .actie {
-    color: #1D1B22
+.vestis-game[data-theme="dark"] .actie {
+    color: #1D1B22;
 }
 
-button:focus-visible {
+.vestis-game button:focus-visible {
     outline: 3px solid var(--brons);
-    outline-offset: 2px
+    outline-offset: 2px;
 }

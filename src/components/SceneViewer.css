@@ -109,6 +109,10 @@
   transition: background-color 140ms ease, scale 140ms ease;
 }
 
+.poi-marker-game {
+  text-decoration: none;
+}
+
 .poi-marker:hover {
   background: #ffd0a8;
   scale: 1.1;

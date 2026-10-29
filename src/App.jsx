@@ -1,6 +1,7 @@
 import { Link, Navigate, Route, Routes, useParams } from 'react-router-dom'
 import { SceneViewer } from './components/SceneViewer.jsx'
 import { scenes } from './data/scenes.js'
+import VestisRomana from './games/verhaallijn-4/RomeinseUitrusting.jsx'
 import './App.css'
 
 function SceneRoute() {
@@ -25,11 +26,23 @@ function SceneRoute() {
   )
 }
 
+function VestisRomanaRoute() {
+  return (
+    <div className="game-page">
+      <Link className="game-back-link" to={`/scenes/${scenes[0].id}`}>
+        Back to the scene
+      </Link>
+      <VestisRomana />
+    </div>
+  )
+}
+
 function App() {
   return (
     <Routes>
       <Route path="/" element={<Navigate replace to={`/scenes/${scenes[0].id}`} />} />
       <Route path="/scenes/:sceneId" element={<SceneRoute />} />
+      <Route path="/games/vestis-romana" element={<VestisRomanaRoute />} />
       <Route path="*" element={<Navigate replace to="/" />} />
     </Routes>
   )
