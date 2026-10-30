@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { Minus, Plus, RotateCcw } from 'lucide-react'
+import { ArrowLeft, Minus, Plus, RotateCcw } from 'lucide-react'
 import {
   TransformComponent,
   TransformWrapper,
@@ -41,6 +41,10 @@ export function SceneViewer({ scene, onPoiSelect }) {
         <div className="scene-heading">
           <p className="scene-eyebrow">{scene.period}</p>
           <h1>{scene.title}</h1>
+          <Link className="scene-back-link" to="/">
+            <ArrowLeft aria-hidden="true" />
+            Startpagina
+          </Link>
         </div>
         <span className="preview-status">{scene.imageStatus}</span>
       </header>

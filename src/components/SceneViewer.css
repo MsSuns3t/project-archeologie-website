@@ -52,6 +52,34 @@
   letter-spacing: 0;
 }
 
+.scene-back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 10px;
+  color: #f1a08e;
+  font-size: 12px;
+  font-weight: 700;
+  pointer-events: auto;
+  text-decoration: none;
+}
+
+.scene-back-link:hover {
+  color: #ffd0a8;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.scene-back-link:focus-visible {
+  outline: 2px solid #f6f2e9;
+  outline-offset: 4px;
+}
+
+.scene-back-link svg {
+  width: 15px;
+  height: 15px;
+}
+
 .preview-status {
   color: #f1a08e;
   font-size: 12px;
